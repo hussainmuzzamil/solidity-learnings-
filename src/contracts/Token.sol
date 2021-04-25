@@ -14,7 +14,7 @@ contract Token is ERC20 {
     //asign initial minter
   } //end of public payable 
 
-  //############## Function number one Add pass minter role function
+  truff Function number one Add pass minter role function
   function passMinterRole(address dBank) public returns (bool){
     require(msg.sender == minter, "Error only owner can change pass minter role");
     minter == dBank;
