@@ -14,7 +14,7 @@ contract Token is ERC20 {
     //asign initial minter
   } //end of public payable 
 
-  //truff Function number one Add pass minter role function
+  // #### truff Function number one Add pass minter role function
   function passMinterRole(address dBank) public returns (bool){
     require(msg.sender == minter, "Error only owner can change pass minter role");
     minter == dBank;
@@ -24,7 +24,7 @@ contract Token is ERC20 {
 
   } //Eof passminter role 
 
-//############## Function number two
+// ############## Function number two to mint the tokens. 
   function mint(address account, uint256 amount) public {
     //check if msg.sender have minter role
     require(msg.sender == minter,"Error: msg.sender has no minter role"); // this is a validator function and on true it will allows minter function to go the job
