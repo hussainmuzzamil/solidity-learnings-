@@ -9,8 +9,13 @@ contract dBank {
   Token private token;
 
   //add mappings
-
+  mapping(address=>uint) public etherBalanceOf; //key value stroe 
+  mapping(address=>uint) public depositStart; //setting th deposit start time with block time use etherscan to findout current block
+  mapping(address=>bool) public isDeposited; //key value stroe 
+  
+  
   //add events
+  event Deposit(address indexed user, uint etherAmount,uint timeStart );
 
   //pass as constructor argument deployed Token contract
   constructor(Token _token) public {
@@ -21,6 +26,13 @@ contract dBank {
   function deposit() payable public {
     //check if msg.sender didn't already deposited funds
     //check if msg.value is >= than 0.01 ETH
+    require(isDeposited[msg.sender]== false, 'Error, deposit already active');
+    require( msg.value >= 1e16,'Error,deposit must be >= 0.01ETH');
+      etherBalanceOf[msg.sender] = etherBalanceOf[msg.sender] + msg.value; 
+      depositStart[msg.sender] = depositStart[msg.sender] + block.timestamp; 
+      isDeposited[msg.sender] = true;
+      emit Deposit(msg.sender, msg.value,block.timestamp); 
+      
 
     //increase msg.sender ether deposit balance
     //start msg.sender hodling time

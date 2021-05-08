@@ -74,8 +74,8 @@ contract('dBank', ([deployer, user]) => {
       })
     })
   })
-
-  describe('testing withdraw...', () => {
+//
+  /*describe('testing withdraw...', () => {
     let balance
 
     describe('success', () => {
@@ -120,5 +120,5 @@ contract('dBank', ([deployer, user]) => {
         await dbank.withdraw({from: deployer}).should.be.rejectedWith(EVM_REVERT) //wrong user
       })
     })
-  })
+  })*/
 })
