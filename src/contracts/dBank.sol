@@ -1,19 +1,21 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.6.0 <0.8.0;
+pragma solidity >0.5.2;
 
 import "./Token.sol";
 
 contract dBank {
 
   //assign Token contract to variable
+  Token private token;
 
   //add mappings
 
   //add events
 
   //pass as constructor argument deployed Token contract
-  constructor() public {
+  constructor(Token _token) public {
     //assign token deployed contract to variable
+    token = _token;
   }
 
   function deposit() payable public {
