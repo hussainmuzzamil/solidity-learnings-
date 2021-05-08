@@ -10,7 +10,7 @@ contract Token is ERC20 {
   event MinterChanged(address indexed from, address to);   //add minter changed event
 
 
-  constructor() public payable ERC20("Decentralized bank currency ", "DCB") {
+  constructor() public payable ERC20("Decentralized bank currency ", "DBC") {
     minter = msg.sender;    //whenever we want to deploy the contaract to the blockchain 
     //asign initial minter
   } //end of public payable 
