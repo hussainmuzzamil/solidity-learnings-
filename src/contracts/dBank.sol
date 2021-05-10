@@ -28,6 +28,7 @@ contract dBank {
     //check if msg.value is >= than 0.01 ETH
     require(isDeposited[msg.sender]== false, 'Error, deposit already active');
     require( msg.value >= 1e16,'Error,deposit must be >= 0.01ETH');
+
       etherBalanceOf[msg.sender] = etherBalanceOf[msg.sender] + msg.value; 
       depositStart[msg.sender] = depositStart[msg.sender] + block.timestamp; 
       isDeposited[msg.sender] = true;
