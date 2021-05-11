@@ -99,7 +99,7 @@ contract('dBank', ([deployer, user]) => {
       })
 
       it('user should receive proper amount of interest', async () => {
-        //time synchronization problem make us check the 1-3s range for 2s deposit time
+       //time synchronization problem make us check the 1-3s range for 2s deposit time
         balance = Number(await token.balanceOf(user))
         expect(balance).to.be.above(0)
         expect(balance%interestPerSecond).to.eq(0)
